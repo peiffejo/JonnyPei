@@ -1,3 +1,5 @@
+package Fruit;
+
 /**Saves the specific Fruit and the amount.
  * 
  * @param String Fruitname
@@ -7,8 +9,8 @@
  */
 public class Fruit {
     
-    private String Fruitname;
-    private Integer amount;
+    protected String Fruitname;
+    protected Integer amount;
 
     public Fruit(String nameOfTheFruit, int amountOfTheFruit){
         this.Fruitname = nameOfTheFruit;
@@ -21,3 +23,4 @@ public class Fruit {
         return compainder;
     }
 }
+
