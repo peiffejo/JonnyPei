@@ -1,9 +1,11 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Fruit.Fruit;
+import Fruit.FruitTag;
 
-
-/**a simple WaWi App to save Fruitsnames and amounts at a List 
+/**
+ * a simple WaWi App to save Fruitsnames and amounts at a List
  * 
  * @throws out of Bounce Exceptions
  * 
@@ -25,8 +27,8 @@ public class WaWi {
         }
     }
 
-    public static void run(){
-        do{
+    public static void run() {
+        do {
             inputFruit();
         } while (!finished(input()));
 
