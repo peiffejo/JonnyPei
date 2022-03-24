@@ -1,0 +1,54 @@
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
+
+public class SameFriends {
+  public static void main(String[] args) {
+    Friend susanA = new Friend("Susan", 21);
+    Friend simonA = new Friend("Simon", 21);
+    Friend susanB = susanA;
+    Friend susanC = new Friend(susanA.name, 20);
+    if (susanA.equals(susanC) || susanA.equals(simonA) || !susanA.equals(susanB)) {      
+      System.out.println("Problem with equals!");
+    }
+    Map<Friend, Friend> whoIsFriendOf = new HashMap<Friend, Friend>();
+    whoIsFriendOf.put(susanC, susanA);    
+    if (!whoIsFriendOf.containsKey(susanC)) {
+      System.out.println("Problem with hashCode!");
+    }
+
+    Set<Friend> myFriends = new HashSet<Friend>();
+    myFriends.add(susanA);
+    myFriends.add(susanB); // Set should detect that susanA is already there
+    myFriends.add(susanC);
+    myFriends.add(simonA);
+    if (myFriends.size() != 3) {
+      System.out.println("Another problem with hashCode AND equals!");
+    }
+  }
+}
+
+class Friend {
+  public String name = "";
+  public int age = 0;
+  
+  Friend(String n,  int a) {
+    this.name = n;
+    this.age = a ;
+  }
+  
+  @Override 
+  public boolean equals( Object other) {
+    if (other == null || !this.getClass().equals(other.getClass())) {
+      return false;
+    }
+    Friend friend = (Friend)other;
+    return (this == friend || Objects.equals(this.name, friend.name) ||  this.age == friend.age);      
+  }
+
+  @Override public int hashCode() {
+    return this.getClass()*Math.random();    
+  }
+}
