@@ -15,13 +15,8 @@ public class GettingStartet{
         listener = worker.translate(listener);
         //Gibt Tutorial Einleitung aus
         System.out.println(listener[0]);
-        //Fragt nach Ausgabe und intialisiert den Kontrolör für Yes/No
-        Eingabecontroler controler = new Eingabecontroler();
-        String answer = in.nextLine();
-        //Kontroliert ob Yes oder No 
-        //  else zwingt zur nochmal Eingabe
-        answer = controler.IsYesNO(answer);
-      
+       
+        String answer = check(in.nextLine());
 
        //Abfrage ob Tutorial nötig oder nicht
         if(answer.equals("yes")){
@@ -30,7 +25,8 @@ public class GettingStartet{
             System.out.println(listener[1]);
         }
         
-        answer = in.nextLine();
+        answer = check(in.nextLine());
+        
 
         //Todo: make charakter und zeige stats
         if(answer.equals("XX")){ 
@@ -46,6 +42,16 @@ public class GettingStartet{
         "Das Spiel funktioniert sehr einfach, du musst dich durch das Dungon Darwin kämpfen und wichtige Entscheidungen treffen. \n Deine Entscheidung verändern das komplette Spiel, also überlege gut wie du entscheidest.\n Außerdem hast du verschiedene Werte: Leben, Ausdauer, Verrücktheit + Gold (damit kannst du Objekte im Spiel kaufen). Diese Stats kannst du jederzeit mit dem Befehl: XX aufrufen. \n Probiers doch mal aus oder starte das Spiel mit: Start" ,
         "hallo noch da",};
         return sentence;
+    }
+
+    public static String check(String controllAnswer){
+        //Fragt nach Ausgabe und intialisiert den Kontrolör für Yes/No
+        Eingabecontroler controler = new Eingabecontroler();
+        
+        //Kontroliert ob Yes oder No 
+        //  else zwingt zur nochmal Eingabe
+      return  controllAnswer = controler.IsYesNO(controllAnswer);
+
     }
     
 }
