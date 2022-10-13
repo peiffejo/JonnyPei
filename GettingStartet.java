@@ -3,6 +3,8 @@ import java.util.Scanner;
 import Game.Charakter;
 import tool.Eingabecontroler;
 import tool.Sonderzeichen;
+import Game.GUI;
+
 
 public class GettingStartet{
     
@@ -28,6 +30,7 @@ public class GettingStartet{
             System.out.println(listener[2]);
         }else{
             System.out.println(listener[1]);
+            GUI game = new GUI();
         }
         
         answer = check(in.nextLine(), "StarterQ");
@@ -39,14 +42,15 @@ public class GettingStartet{
             System.out.println(worker.translateString("\nDer Name deines Helden ist " + player.giveName() + ". Du enstammst aus einer adligen Familie aus Longkros. \nDu erfreust dich bester Gesundheit, somit steht dein Leben bei " + player.giveHealth() + " Lebenspunkten. \n\nDein Vergiftungsgrad steht jedoch leicht bei " + player.giveToxic() + " Vergiftungspunkten. Der Grund hierfür ist ein zu starker Alkohlkonsum im Pub Namens Tröte. Der Name verspricht was er sagt. Die besten Musikanten aus ganz Shigma kehren in diesem Ort ein. \n\nDeine Goldtaler anzahl im Geldbeutel, liegt durch deinen netten Nachbar, exakt bei 0 Goldthaler. Er war ein verflixt guter Kartenspieler. \n\n Schreibe 'Start' um mit dem Spiel zu starten"));
         }else{
             //starte Spiel
+            GUI game = new GUI();
         }
     }
 
     public static String[] tutorial(){
         String sentence [] = {"Hallo und Herzlich Willkommen zu Fantasy dungon CMD.\n Benötigst du ein Tutorial? YES/NO", 
-        "Viel Spaß mit dem Spiel! Gebe einfach Start ein",
+        "Viel Spaß mit dem Spiel!",
         "\n\nDas Spiel funktioniert sehr einfach, du musst dich durch das Dungon Darwin kämpfen und wichtige Entscheidungen treffen. \n Deine Entscheidung verändern das komplette Spiel, also überlege gut wie du entscheidest.\n Außerdem hast du verschiedene Werte: Leben, Ausdauer, Verrücktheit + Gold (damit kannst du Objekte im Spiel kaufen). Diese Stats kannst du jederzeit während du Spielst mit dem Befehl: 'S' aufrufen. \n Gebe XX ein um eine Einleitung zu bekommen und deine momentanen Stats zu sehen. Wenn du diesen Part überspringen willst und direkt mit dem Spiel anfangen willst gebe 'V' ein" ,
-        "hallo noch da",};
+        "Hallo noch da",};
         return sentence;
     }
 
